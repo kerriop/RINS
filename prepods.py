@@ -1,4 +1,7 @@
 #все операции с преподавателями
+
+prepods_list = []
+
 class Prepod (object):
     def __init__(self, name):
         self.name = name
@@ -9,7 +12,9 @@ class Prepod (object):
     def trace(self):
         print("[Prepod name='" + self.name + "']")
 
-prepods_list = []
-prepods_list.append(Prepod("Фамилия И.О."))
+def add_prepod(name):
+    prepods_list.append(Prepod(name))
 
-prepods_list[0].trace()
+def trace():
+    for p in prepods_list:
+        p.trace()
