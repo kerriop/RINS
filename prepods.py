@@ -1,4 +1,5 @@
 #Библиотека для работы со списком преподавателей
+from bs4 import BeautifulSoup
 
 prepodsList = []
 
@@ -31,3 +32,12 @@ def loadInput():
     authors = [x.strip() for x in authors]
     for author in authors:
         addPrepod(author)
+
+#Разбор преподавателей из общей страницы поиска
+def parsePrepods(r, prepod):
+    soup = BeautifulSoup(r.text, 'html.parser')
+    table = soup.find("table", {"id": "restab"})
+    if table is None:
+        print("Автор не найден (" + prepod + ")")
+        return
+    print("Авторы найдены!")
