@@ -1,6 +1,6 @@
-#все операции с преподавателями
+#Библиотека для работы со списком преподавателей
 
-prepods_list = []
+prepodsList = []
 
 class Prepod (object):
     def __init__(self, name):
@@ -12,9 +12,15 @@ class Prepod (object):
     def trace(self):
         print("[Prepod name='" + self.name + "']")
 
-def add_prepod(name):
-    prepods_list.append(Prepod(name))
+def addPrepod(name):
+    prepodsList.append(Prepod(name))
 
 def trace():
-    for p in prepods_list:
+    for p in prepodsList:
         p.trace()
+
+def loadInput():
+    with open("input.txt") as f: authors = f.readlines()
+    authors = [x.strip() for x in authors]
+    for author in authors:
+        addPrepod(author)

@@ -1,4 +1,5 @@
-import prepods
+import urllib.parse
+import prepods, enet
 
-prepods.add_prepod("Фамилия И.О.")
+prepods.loadInput()
 prepods.trace()
